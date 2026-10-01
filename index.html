@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Mant. CO · Presença digital que se mantém.</title>
+<meta name="description" content="Sites, landing pages, vídeos pitch, identidade visual e gestão de redes para pequenos negócios e autônomos. Presença digital que se mantém.">
+<meta name="theme-color" content="#1F2328">
+<meta property="og:title" content="Mant. CO · Presença digital que se mantém.">
+<meta property="og:description" content="Sites, landing pages, vídeos, marca e redes para pequenos negócios e autônomos.">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="pt_BR">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%231F2328'/%3E%3Cpath d='M20 78V24L50 56L80 24V54' fill='none' stroke='%23F5F3EE' stroke-width='13' stroke-linecap='round' stroke-linejoin='round'/%3E%3Ccircle cx='80' cy='76' r='9' fill='%23FF6B35'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@500;600&family=Sora:wght@700&display=swap" rel="stylesheet">
+<style>
+/* A marca é escura por definição: o mesmo esquema vale para claro e escuro */
+:root{--bg:#1F2328;--fg:#F5F3EE;--muted:#A3A8B0;--dim:#4A5059;--org:#FF6B35;--ink:#1F2328}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#1F2328;--fg:#F5F3EE;--muted:#A3A8B0;--dim:#4A5059}}
+:root[data-theme="dark"]{--bg:#1F2328;--fg:#F5F3EE;--muted:#A3A8B0;--dim:#4A5059}
+:root{box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+*,*::before,*::after{box-sizing:inherit}
+html{height:100%;scroll-padding-top:env(safe-area-inset-top,0px);background:var(--bg)}
+body{margin:0;height:100%;background:var(--bg);color:var(--fg);font-family:'Inter',system-ui,-apple-system,'Segoe UI',sans-serif;overflow:hidden;-webkit-font-smoothing:antialiased}
+.stage{position:relative;height:100%;display:grid;place-items:center;padding:24px}
+
+/* ---------- intro ---------- */
+.intro{position:absolute;inset:0;display:grid;place-items:center;pointer-events:none}
+.intro .mono{width:clamp(92px,16vmin,150px);height:auto;overflow:visible;transform:translateY(-6vmin)}
+.seg{fill:none;stroke:var(--fg);stroke-width:13;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:var(--l);stroke-dashoffset:var(--l)}
+.s1{--l:55}.s2{--l:91}.s3{--l:31}
+.dot{fill:var(--org);transform-box:fill-box;transform-origin:center;opacity:0}
+.words{position:absolute;left:0;right:0;top:calc(50% + 7vmin);height:1.4em;font-family:'Sora',sans-serif;font-weight:700;letter-spacing:.42em;text-indent:.42em;text-align:center;font-size:clamp(20px,4.6vmin,44px);color:var(--muted)}
+.words span{position:absolute;inset:0;opacity:0}
+.play .s1{animation:draw .75s .25s cubic-bezier(.65,0,.35,1) forwards}
+.play .s2{animation:draw .9s 1.15s cubic-bezier(.65,0,.35,1) forwards}
+.play .s3{animation:draw .55s 2.2s cubic-bezier(.65,0,.35,1) forwards}
+.play .dot{animation:drop .7s 2.75s cubic-bezier(.34,1.56,.64,1) forwards}
+.play .w1{animation:word 1s .2s both}
+.play .w2{animation:word 1.05s 1.15s both}
+.play .w3{animation:word 1.15s 2.15s both}
+.intro.out{animation:fadeout .55s forwards}
+@keyframes draw{to{stroke-dashoffset:0}}
+@keyframes drop{0%{opacity:1;transform:translateY(-260%) scale(.6)}60%{opacity:1}100%{opacity:1;transform:none}}
+@keyframes word{0%{opacity:0;transform:translateY(.6em);filter:blur(4px)}22%,74%{opacity:1;transform:none;filter:none}100%{opacity:0;transform:translateY(-.4em);filter:blur(3px)}}
+@keyframes fadeout{to{opacity:0;transform:scale(.94)}}
+
+/* ---------- final ---------- */
+.final{display:flex;flex-direction:column;align-items:center;text-align:center;gap:clamp(18px,3.2vmin,30px);opacity:0}
+.final .wm{width:min(78vw,540px);height:auto;display:block}
+.tag{margin:0;font-family:'Sora',sans-serif;font-weight:700;font-size:clamp(11px,1.9vmin,17px);letter-spacing:.32em;text-indent:.32em;color:var(--muted);text-transform:uppercase}
+.cta{display:inline-flex;align-items:center;gap:10px;margin-top:clamp(6px,2vmin,18px);padding:14px 26px;border-radius:999px;background:var(--org);color:var(--ink);font-weight:600;font-size:clamp(14px,1.9vmin,17px);text-decoration:none;transition:transform .2s ease,box-shadow .2s ease}
+.cta:hover{transform:translateY(-2px);box-shadow:0 10px 30px -8px rgba(255,107,53,.55)}
+.cta:focus-visible,.ig:focus-visible{outline:3px solid var(--fg);outline-offset:4px}
+.cta svg{width:19px;height:19px}
+.ig{color:var(--muted);font-weight:500;font-size:14px;text-decoration:none;letter-spacing:.02em;border-bottom:1px solid transparent;transition:color .2s,border-color .2s}
+.ig:hover{color:var(--fg);border-color:var(--org)}
+.show .final{animation:rise .9s cubic-bezier(.16,1,.3,1) forwards}
+.show .final>*{opacity:0;animation:rise .8s cubic-bezier(.16,1,.3,1) forwards}
+.show .final>:nth-child(1){animation-delay:.05s}.show .final>:nth-child(2){animation-delay:.25s}.show .final>:nth-child(3){animation-delay:.45s}.show .final>:nth-child(4){animation-delay:.6s}
+.wm .wdot{transform-box:fill-box;transform-origin:center}
+.show .wm .wdot{animation:pop .6s .55s cubic-bezier(.34,1.56,.64,1) both}
+@keyframes rise{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
+@keyframes pop{from{transform:scale(0)}to{transform:scale(1)}}
+footer{position:fixed;left:0;right:0;padding:0 20px;line-height:1.7;bottom:calc(env(safe-area-inset-bottom,0px) + 18px);text-align:center;font-size:12px;color:var(--dim);letter-spacing:.06em;opacity:0}
+.show footer{animation:rise .8s 1s forwards}
+.skip{position:fixed;right:18px;bottom:calc(env(safe-area-inset-bottom,0px) + 14px);background:none;border:0;color:var(--dim);font:500 12px 'Inter',sans-serif;cursor:pointer;padding:6px}
+.show .skip{display:none}
+@media (prefers-reduced-motion:reduce){.intro{display:none}.final,.final>*,footer{opacity:1!important;animation:none!important}.skip{display:none}}
+</style>
+</head>
+<body>
+<main class="stage" id="stage">
+  <div class="intro play" id="intro" aria-hidden="true">
+    <svg class="mono" viewBox="0 0 100 100">
+      <path class="seg s1" d="M20 78V24"/>
+      <path class="seg s2" d="M20 24L50 56L80 24"/>
+      <path class="seg s3" d="M80 24V54"/>
+      <circle class="dot" cx="80" cy="76" r="9"/>
+    </svg>
+    <div class="words"><span class="w1">CRIAR</span><span class="w2">TESTAR</span><span class="w3">MANTER</span></div>
+  </div>
+
+  <section class="final" aria-label="Mant. CO">
+    <h1 style="margin:0"><svg class="wm" viewBox="0 0 741.3 202" role="img" aria-label="Mant. CO"><path d="M44.4 174V28H89.6L122.9 110.1H126.7L159.8 28H205.8V174H173.3V49.4L178 49.8L139.45 144.4H108.1L69.35 49.8L74.4 49.4V174Z M293.95 174V141.7H288.65V106.5Q288.65 98.05 284.6 93.88Q280.55 89.7 271.8 89.7Q267.4 89.7 260.2 89.9Q253 90.1 245.35 90.45Q237.7 90.8 231.5 91.2V64.2Q236.2 63.8 242.38 63.42Q248.55 63.05 255.18 62.87Q261.8 62.7 267.5 62.7Q284.35 62.7 295.88 67.42Q307.4 72.15 313.38 81.85Q319.35 91.55 319.35 106.85V174ZM258.95 176.8Q247.25 176.8 238.33 172.62Q229.4 168.45 224.4 160.57Q219.4 152.7 219.4 141.7Q219.4 129.55 225.62 121.88Q231.85 114.2 243 110.52Q254.15 106.85 268.85 106.85H292.15V124.55H268.65Q260.2 124.55 255.65 128.72Q251.1 132.9 251.1 139.75Q251.1 146.45 255.65 150.57Q260.2 154.7 268.65 154.7Q273.95 154.7 278.28 152.8Q282.6 150.9 285.43 146.28Q288.25 141.65 288.65 133.5L296.25 141.4Q295.25 152.8 290.75 160.65Q286.25 168.5 278.35 172.65Q270.45 176.8 258.95 176.8Z M337.5 174V64.5H362.9V111.5H361.1Q361.1 94.65 365.48 83.45Q369.85 72.25 378.58 66.62Q387.3 61 399.95 61H401.35Q420.5 61 430.65 73.53Q440.8 86.05 440.8 111.35V174H408.7V109.6Q408.7 100.8 403.57 95.25Q398.45 89.7 389.55 89.7Q380.55 89.7 375.08 95.32Q369.6 100.95 369.6 110.2V174Z M508.75 175.5Q492.25 175.5 482.05 171.35Q471.85 167.2 467.07 157.47Q462.3 147.75 462.3 131.15L462.45 34.8H492.25L492.1 132.5Q492.1 140.2 496.2 144.3Q500.3 148.4 508 148.4H524.1V175.5ZM445.7 87.9V64.5H524.1V87.9Z" fill="#F5F3EE"/><path class="wdot" d="M536.85 174V138.2H572.05V174Z" fill="#FF6B35"/><path d="M630.56 175.22Q623.76 175.22 618.97 172.84Q614.18 170.46 611.25 166.66Q608.33 162.85 606.97 158.39Q605.61 153.94 605.61 149.79V148.3Q605.61 143.81 607 139.32Q608.4 134.83 611.32 131.16Q614.24 127.49 618.94 125.24Q623.63 123 630.16 123Q636.82 123 641.58 125.31Q646.34 127.62 649.13 131.77Q651.92 135.92 652.53 141.56H645.73Q645.18 137.35 643.01 134.59Q640.83 131.84 637.53 130.48Q634.24 129.12 630.16 129.12Q625.74 129.12 622.4 130.65Q619.07 132.18 616.86 134.93Q614.65 137.69 613.53 141.29Q612.41 144.9 612.41 149.11Q612.41 153.12 613.53 156.73Q614.65 160.33 616.93 163.12Q619.21 165.91 622.61 167.51Q626.01 169.1 630.56 169.1Q636.96 169.1 641.31 165.91Q645.66 162.71 646.61 156.66H653.41Q652.73 161.76 649.98 165.98Q647.22 170.19 642.36 172.71Q637.5 175.22 630.56 175.22Z M683.94 175.22Q677.28 175.22 672.45 172.84Q667.62 170.46 664.5 166.59Q661.37 162.71 659.84 158.29Q658.31 153.87 658.31 149.79V148.3Q658.31 143.88 659.87 139.39Q661.44 134.9 664.63 131.19Q667.83 127.49 672.62 125.24Q677.42 123 683.94 123Q690.47 123 695.27 125.24Q700.06 127.49 703.26 131.19Q706.45 134.9 708.02 139.39Q709.58 143.88 709.58 148.3V149.79Q709.58 153.87 708.05 158.29Q706.52 162.71 703.39 166.59Q700.26 170.46 695.44 172.84Q690.61 175.22 683.94 175.22ZM683.94 169.1Q688.3 169.1 691.8 167.47Q695.3 165.84 697.75 163.02Q700.2 160.2 701.49 156.63Q702.78 153.06 702.78 149.11Q702.78 144.96 701.49 141.36Q700.2 137.76 697.75 135Q695.3 132.25 691.8 130.68Q688.3 129.12 683.94 129.12Q679.59 129.12 676.09 130.68Q672.59 132.25 670.14 135Q667.69 137.76 666.4 141.36Q665.11 144.96 665.11 149.11Q665.11 153.06 666.4 156.63Q667.69 160.2 670.14 163.02Q672.59 165.84 676.09 167.47Q679.59 169.1 683.94 169.1Z" fill="#A3A8B0"/></svg></h1>
+    <p class="tag">Presença digital que se mantém.</p>
+    <a class="cta" id="cta" href="#" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38a9.9 9.9 0 0 0 4.74 1.21h.01c5.46 0 9.91-4.45 9.91-9.91C21.96 6.45 17.5 2 12.04 2zm0 18.15h-.01a8.2 8.2 0 0 1-4.19-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.2 8.2 0 0 1-1.26-4.38c0-4.54 3.7-8.23 8.25-8.23a8.23 8.23 0 0 1 8.23 8.24c0 4.54-3.7 8.23-8.23 8.23zm4.52-6.16c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.12-.17.25-.64.81-.78.97-.14.17-.29.19-.54.06-.25-.12-1.05-.39-1.99-1.23-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.02-.38.11-.51.11-.11.25-.29.37-.43.12-.14.17-.25.25-.41.08-.17.04-.31-.02-.43-.06-.12-.56-1.34-.76-1.84-.2-.48-.41-.42-.56-.43h-.48c-.17 0-.43.06-.66.31-.23.25-.86.85-.86 2.07 0 1.22.89 2.4 1.01 2.56.12.17 1.75 2.67 4.23 3.74.59.26 1.05.41 1.41.52.59.19 1.13.16 1.56.1.48-.07 1.47-.6 1.67-1.18.21-.58.21-1.07.14-1.18-.06-.1-.22-.16-.47-.28z"/></svg>
+      <span id="ctaText">Conversar no WhatsApp</span>
+    </a>
+    <a class="ig" href="https://instagram.com/mant.corp" target="_blank" rel="noopener">@mant.corp</a>
+  </section>
+  <footer>Sites · Landing pages · Vídeos · Marca · Redes &nbsp;—&nbsp; Vitória/ES</footer>
+  <button class="skip" id="skip" type="button">Pular</button>
+</main>
+<script>
+// ====== CONFIGURE AQUI ======
+// Coloque o WhatsApp com DDI + DDD, só números (ex.: '5527999999999').
+// Enquanto estiver vazio, o botão leva para o Instagram.
+const WHATSAPP = '5527999951802';
+const MENSAGEM = 'Olá! Vim pelo site da Mant. CO e quero conversar.';
+// ============================
+(function(){
+  const cta=document.getElementById('cta'), stage=document.getElementById('stage'), intro=document.getElementById('intro');
+  if(WHATSAPP){ cta.href='https://wa.me/'+WHATSAPP+'?text='+encodeURIComponent(MENSAGEM); }
+  else { cta.href='https://instagram.com/mant.corp'; document.getElementById('ctaText').textContent='Falar no Instagram'; cta.querySelector('svg').style.display='none'; }
+  let done=false;
+  function finish(){ if(done) return; done=true; intro.classList.add('out'); stage.classList.add('show'); setTimeout(()=>intro.remove(),900); }
+  const reduce=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if(reduce){ stage.classList.add('show'); intro.remove(); return; }
+  setTimeout(finish,3850);
+  document.getElementById('skip').addEventListener('click',()=>{intro.style.animation='fadeout .3s forwards';intro.classList.remove('play');finish();});
+})();
+</script>
+</body>
+</html>
