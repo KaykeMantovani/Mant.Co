@@ -5,110 +5,557 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Mant. CO · Presença digital que se mantém.</title>
 <meta name="description" content="Sites, landing pages, vídeos pitch, identidade visual e gestão de redes para pequenos negócios e autônomos. Presença digital que se mantém.">
-<meta name="theme-color" content="#1F2328">
+<meta name="theme-color" content="#0a0a0a">
 <meta property="og:title" content="Mant. CO · Presença digital que se mantém.">
 <meta property="og:description" content="Sites, landing pages, vídeos, marca e redes para pequenos negócios e autônomos.">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="pt_BR">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%231F2328'/%3E%3Cpath d='M20 78V24L50 56L80 24V54' fill='none' stroke='%23F5F3EE' stroke-width='13' stroke-linecap='round' stroke-linejoin='round'/%3E%3Ccircle cx='80' cy='76' r='9' fill='%23FF6B35'/%3E%3C/svg%3E">
-<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@500;600&family=Sora:wght@700&display=swap" rel="stylesheet">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%230a0a0a'/%3E%3Cpath d='M20 78V24L50 56L80 24V54' fill='none' stroke='%23FAFAFA' stroke-width='13' stroke-linecap='round' stroke-linejoin='round'/%3E%3Ccircle cx='80' cy='76' r='9' fill='%23FF6B35'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
-/* A marca é escura por definição: o mesmo esquema vale para claro e escuro */
-:root{--bg:#1F2328;--fg:#F5F3EE;--muted:#A3A8B0;--dim:#4A5059;--org:#FF6B35;--ink:#1F2328}
-@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#1F2328;--fg:#F5F3EE;--muted:#A3A8B0;--dim:#4A5059}}
-:root[data-theme="dark"]{--bg:#1F2328;--fg:#F5F3EE;--muted:#A3A8B0;--dim:#4A5059}
-:root{box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
-*,*::before,*::after{box-sizing:inherit}
-html{height:100%;scroll-padding-top:env(safe-area-inset-top,0px);background:var(--bg)}
-body{margin:0;height:100%;background:var(--bg);color:var(--fg);font-family:'Inter',system-ui,-apple-system,'Segoe UI',sans-serif;overflow:hidden;-webkit-font-smoothing:antialiased}
-.stage{position:relative;height:100%;display:grid;place-items:center;padding:24px}
+/* Estilo "Graphite": canvas quase preto, bordas finas, tipografia branca precisa, laranja só como sinal. A marca é escura nos dois esquemas. */
+:root{
+  --black:#000;--canvas:#0a0a0a;--charcoal:#171717;--edge:#262626;--steel:#464646;
+  --white:#fafafa;--paper:#e5e5e5;--fog:#a1a1a1;--ash:#737373;
+  --org:#FF6B35;
+  --spectrum:linear-gradient(90deg,#ffb931 15%,#fff 30%,#fff 40%,#2e73fc 50%);
+  --r:10px;--rb:8px;--max:1152px;
+  --sh-sm:rgba(0,0,0,.25) 0 4px 4px 0;
+  --sh-btn:rgba(0,0,0,.1) 0 1px 3px 0,rgba(0,0,0,.1) 0 1px 2px -1px;
+  --sh-frame:rgba(101,129,128,.15) 0 0 2px 2px inset,rgba(32,47,46,.15) 0 0 4px 4px inset;
+  --sh-md:rgba(0,0,0,.3) 0 8px 10px 0;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--canvas:#0a0a0a;--white:#fafafa}}
+:root[data-theme="dark"]{--canvas:#0a0a0a;--white:#fafafa}
+*,*::before,*::after{box-sizing:border-box}
+html{background:var(--canvas);scroll-behavior:smooth;scroll-padding-top:110px}
+body{margin:0;background:var(--canvas);color:var(--white);font:400 16px/1.5 'Inter',ui-sans-serif,system-ui,-apple-system,'Segoe UI',sans-serif;font-feature-settings:"cv11","ss01";-webkit-font-smoothing:antialiased;overflow-x:hidden}
+body.locked{overflow:hidden}
+h1,h2,h3{margin:0;font-weight:500;color:var(--white)}
+p{margin:0}
+a{color:inherit}
+.wrap{width:100%;max-width:calc(var(--max) + 48px);margin:0 auto;padding:0 24px}
+.o{color:var(--org)}
+.label{display:inline-flex;align-items:center;gap:8px;font-size:14px;font-weight:500;color:var(--fog)}
+.label::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--org)}
+section{padding:clamp(96px,13vw,176px) 0 0}
+.head{display:grid;gap:16px;max-width:680px;margin-bottom:48px}
+.head h2{font-size:clamp(30px,3.6vw,36px);line-height:1.11;letter-spacing:-.5px}
+.head p{color:var(--fog);font-size:18px;line-height:1.45}
+.link{display:inline-flex;align-items:center;gap:6px;color:var(--org);text-decoration:none;font-size:16px;line-height:20px}
+.link svg{width:14px;height:14px;transition:transform .2s}
+.link:hover svg{transform:translateX(3px)}
+
+/* ---------- botões ---------- */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:8px 16px;min-height:40px;border-radius:var(--rb);font:500 14px/20px 'Inter',sans-serif;text-decoration:none;white-space:nowrap;transition:background .2s,border-color .2s,transform .2s}
+.btn svg{width:16px;height:16px;flex:none}
+.btn-pri{background:var(--paper);color:var(--charcoal);border:1px solid rgba(255,255,255,.1);box-shadow:rgb(255,255,255) 0 1px 0 0 inset,rgba(0,0,0,.1) 0 -2px 6px 0 inset}
+.btn-pri:hover{background:#fff}
+.btn-sec{background:var(--edge);color:var(--white);border:1px solid var(--steel);box-shadow:var(--sh-btn)}
+.btn-sec:hover{background:#2e2e2e}
+.btn-lg{min-height:48px;padding:12px 20px;font-size:15px}
+a:focus-visible,button:focus-visible,summary:focus-visible{outline:2px solid var(--ash);outline-offset:3px;border-radius:var(--rb)}
+
+/* ---------- barra de aviso + nav ---------- */
+.top{position:fixed;top:0;left:0;right:0;z-index:50;padding-top:env(safe-area-inset-top,0px);background:linear-gradient(var(--canvas) 55%,transparent)}
+.announce{background:var(--charcoal);border-bottom:1px solid var(--edge);text-align:center;padding:8px 16px;font-size:14px;font-weight:600;line-height:20px}
+.announce a{color:var(--fog);font-weight:400;text-decoration:none;margin-left:8px}
+.announce a:hover{color:var(--white)}
+.nav{margin:12px auto 0;max-width:var(--max);width:calc(100% - 32px);display:flex;align-items:center;justify-content:space-between;gap:16px;padding:8px 8px 8px 16px;background:var(--canvas);border:1px solid var(--edge);border-radius:var(--r);box-shadow:var(--sh-sm)}
+.nav .logo{display:block;line-height:0}
+.nav .logo svg{height:22px;width:auto}
+.nav ul{display:flex;gap:4px;list-style:none;margin:0;padding:0}
+.nav ul a{display:block;padding:6px 12px;border-radius:var(--rb);text-decoration:none;color:var(--fog);font-size:14px;font-weight:500;transition:color .2s,background .2s}
+.nav ul a:hover{color:var(--white);background:var(--charcoal)}
+.nav .ctas{display:flex;gap:8px}
+.btn-ghost{color:var(--fog);border:1px solid rgba(255,255,255,.1);background:transparent}
+.btn-ghost:hover{color:var(--white)}
+@media (max-width:900px){.nav ul{display:none}}
+@media (max-width:560px){.nav .btn-ghost{display:none}.announce span.x{display:none}}
+
+/* ---------- hero ---------- */
+.hero{position:relative;padding:clamp(170px,20vw,220px) 0 0}
+.hero>.wrap:first-child{display:grid;grid-template-columns:1.1fr .9fr;gap:48px;align-items:center}
+.hero h1{font-size:clamp(40px,6vw,60px);line-height:1;letter-spacing:-1.5px;margin:24px 0}
+.hero h1 .dim{color:var(--ash)}
+.hero .lead{font-size:18px;line-height:1.45;color:var(--fog);max-width:500px}
+.hero .actions{display:flex;flex-wrap:wrap;gap:8px;margin-top:32px}
+.hero .meta{display:flex;flex-wrap:wrap;gap:8px 24px;margin-top:32px;font-size:14px;color:var(--ash)}
+.hero .meta span{display:inline-flex;align-items:center;gap:8px}
+.hero .meta svg{width:14px;height:14px;color:var(--fog)}
+
+/* polígono luminoso */
+.poly{position:relative;aspect-ratio:1;width:100%;max-width:460px;justify-self:end}
+.poly svg{position:absolute;inset:0;width:100%;height:100%;overflow:visible}
+.poly .sq{fill:none;stroke:var(--white);stroke-width:1.2}
+.poly g{transform-origin:200px 200px;transform-box:view-box}
+.poly .blur{filter:blur(6px);opacity:.45}
+.poly .g1{animation:spin 60s linear infinite}
+.poly .g2{animation:spin 80s linear infinite reverse}
+.poly .g3{animation:spin 100s linear infinite}
+.poly .glow{position:absolute;inset:22%;border-radius:50%;background:radial-gradient(circle,rgba(255,255,255,.08),transparent 70%)}
+.poly .mono{position:absolute;left:50%;top:50%;width:22%;transform:translate(-50%,-50%)}
+.poly .mono path{fill:none;stroke:var(--white);stroke-width:11;stroke-linecap:round;stroke-linejoin:round}
+@keyframes spin{to{transform:rotate(360deg)}}
+@media (max-width:900px){.hero>.wrap:first-child{grid-template-columns:1fr}.poly{justify-self:center;max-width:340px;order:-1;margin-bottom:-24px}}
+
+/* ---------- moldura de demonstração ---------- */
+.demo{margin-top:clamp(64px,9vw,112px)}
+.frame{position:relative;border:1px solid var(--edge);border-radius:var(--r);background:var(--canvas);box-shadow:var(--sh-frame);overflow:hidden}
+.frame::before{content:"";position:absolute;left:0;right:0;top:-1px;height:1px;background:var(--spectrum);background-size:200% 100%;animation:sweep 6s linear infinite;opacity:.8}
+@keyframes sweep{from{background-position:100% 0}to{background-position:-100% 0}}
+.frame .bar{display:flex;align-items:center;gap:8px;padding:12px 16px;border-bottom:1px solid var(--edge)}
+.frame .bar i{width:10px;height:10px;border-radius:50%;background:var(--edge)}
+.frame .url{margin:0 auto;display:flex;align-items:center;gap:8px;padding:4px 14px;border-radius:999px;background:var(--charcoal);border:1px solid var(--edge);font-size:12px;color:var(--fog)}
+.frame .url .live{width:6px;height:6px;border-radius:50%;background:#3DD68C;box-shadow:0 0 8px #3DD68C}
+.stagev{position:relative;height:clamp(320px,42vw,460px);background:radial-gradient(ellipse at 50% 0,#141414,var(--black) 70%)}
+.view{position:absolute;inset:0;padding:clamp(20px,4vw,48px);opacity:0;transform:translateY(8px);transition:opacity .45s,transform .45s;pointer-events:none}
+.view.on{opacity:1;transform:none}
+.view::after{content:"";position:absolute;inset:auto 0 0 0;height:40%;background:linear-gradient(transparent,var(--black));pointer-events:none}
+.tag{position:absolute;top:16px;right:16px;z-index:2;font-size:12px;color:var(--white);background:rgba(10,10,10,.7);border:1px solid var(--edge);border-radius:20px;padding:4px 10px;backdrop-filter:blur(6px)}
+/* esqueletos */
+.k{border-radius:6px;background:var(--edge)}
+.k.t{height:clamp(22px,3vw,34px);width:62%;background:var(--white);opacity:.92}
+.k.t2{height:clamp(22px,3vw,34px);width:44%;background:var(--steel);margin-top:8px}
+.k.l{height:10px;width:52%;margin-top:20px}.k.l2{height:10px;width:40%;margin-top:10px}
+.k.b{height:34px;width:130px;margin-top:24px;background:var(--paper);border-radius:var(--rb)}
+.row{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:36px}
+.row div{height:110px;border-radius:var(--r);border:1px solid var(--edge);background:var(--charcoal)}
+.lp{display:grid;grid-template-columns:1fr 1fr;gap:32px;align-items:center;height:100%}
+.lp .img{height:80%;border-radius:var(--r);border:1px solid var(--edge);background:linear-gradient(135deg,#1c1c1c,#0d0d0d)}
+.vid{display:grid;place-items:center;height:100%}
+.vid .player{width:min(560px,90%);aspect-ratio:16/9;border-radius:var(--r);border:1px solid var(--edge);background:linear-gradient(160deg,#1a1a1a,#050505);display:grid;place-items:center;position:relative}
+.vid .play{width:64px;height:64px;border-radius:50%;background:var(--paper);display:grid;place-items:center;color:var(--charcoal)}
+.vid .play svg{width:24px;height:24px;margin-left:3px}
+.vid .prog{position:absolute;left:16px;right:16px;bottom:16px;height:3px;border-radius:2px;background:var(--edge)}
+.vid .prog::before{content:"";display:block;height:100%;width:38%;border-radius:2px;background:var(--white)}
+.ig{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;max-width:620px;margin:0 auto}
+.ig div{aspect-ratio:1;border-radius:6px;border:1px solid var(--edge);background:var(--charcoal)}
+.ig div:nth-child(3n+1){background:#141414}
+.ig div:nth-child(5){background:linear-gradient(135deg,#222,#111)}
+.igh{display:flex;align-items:center;gap:16px;max-width:620px;margin:0 auto 24px}
+.igh .av{width:56px;height:56px;border-radius:50%;border:1px solid var(--steel);background:var(--charcoal)}
+.brandv{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;height:100%;align-content:center;max-width:760px;margin:0 auto}
+.brandv div{aspect-ratio:1.2;border-radius:var(--r);border:1px solid var(--edge);display:grid;place-items:center}
+.brandv .sw{display:flex;gap:8px}.brandv .sw i{width:28px;height:28px;border-radius:50%;border:1px solid var(--steel)}
+.brandv .aa{font-size:44px;font-weight:600;letter-spacing:-1px;color:var(--white)}
+/* abas */
+.tabs{display:flex;gap:8px;padding:12px;border-top:1px solid var(--edge);background:var(--canvas);overflow-x:auto;scrollbar-width:none}
+.tabs::-webkit-scrollbar{display:none}
+.tabs button{flex:none;display:inline-flex;align-items:center;gap:8px;padding:6px 12px;border-radius:4px;background:var(--black);border:1px solid var(--edge);color:var(--fog);font:500 13px 'Inter',sans-serif;cursor:pointer;transition:color .2s,border-color .2s}
+.tabs button svg{width:14px;height:14px}
+.tabs button:hover{color:var(--white)}
+.tabs button[aria-selected="true"]{color:var(--white);border-color:var(--steel)}
+@media (max-width:640px){.lp{grid-template-columns:1fr}.lp .img{display:none}.row div{height:70px}.brandv .aa{font-size:28px}}
+
+/* ---------- mosaico de serviços ---------- */
+.mosaic{display:grid;grid-template-columns:repeat(6,1fr);gap:16px}
+.cell{grid-column:span 2;border:1px solid var(--edge);border-radius:var(--r);background:var(--canvas);overflow:hidden;display:flex;flex-direction:column;transition:border-color .25s}
+.cell:hover{border-color:var(--steel)}
+.cell.w3{grid-column:span 3}
+.cell .vis{position:relative;height:150px;border-bottom:1px solid var(--edge);background:radial-gradient(ellipse at 50% 120%,#1a1a1a,var(--black) 70%);overflow:hidden}
+.cell .txt{padding:24px;display:grid;gap:8px;align-content:start;flex:1}
+.cell h3{font-size:24px;line-height:1.17;font-weight:600;letter-spacing:-.3px}
+.cell p{color:var(--fog);font-size:16px;line-height:1.5}
+.cell .link{margin-top:8px}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px}
+.chips span{font-size:12px;color:var(--fog);border:1px solid var(--edge);border-radius:20px;padding:3px 10px}
+/* mini visuais */
+.v-site{position:absolute;left:24px;right:24px;top:24px;bottom:-1px;border:1px solid var(--edge);border-bottom:0;border-radius:var(--r) var(--r) 0 0;background:var(--canvas);padding:16px}
+.v-site .k.t{width:55%;height:14px}.v-site .k.l{width:40%;height:8px;margin-top:10px}.v-site .k.b{width:70px;height:20px;margin-top:14px}
+.v-lp{position:absolute;inset:0;display:grid;place-items:center}
+.v-lp .bub{display:flex;align-items:center;gap:8px;padding:10px 14px;border:1px solid var(--edge);border-radius:999px;background:var(--charcoal);font-size:13px;color:var(--white);box-shadow:var(--sh-md)}
+.v-lp .bub svg{width:16px;height:16px;color:#3DD68C}
+.v-lp .bub2{position:absolute;right:16%;bottom:22px;font-size:12px;color:var(--fog);border:1px solid var(--edge);border-radius:20px;padding:3px 10px;background:var(--canvas)}
+.v-vid{position:absolute;inset:0;display:flex;align-items:flex-end;gap:3px;padding:0 24px 28px}
+.v-vid i{flex:1;background:var(--edge);border-radius:2px;animation:eq 1.6s ease-in-out infinite}
+.v-vid i:nth-child(odd){animation-delay:-.6s}.v-vid i:nth-child(3n){animation-delay:-1.1s;background:var(--steel)}
+@keyframes eq{0%,100%{height:18%}50%{height:70%}}
+.v-brand{position:absolute;inset:0;display:grid;place-items:center}
+.v-brand svg{width:64px;height:64px}
+.v-brand svg path{fill:none;stroke:var(--white);stroke-width:11;stroke-linecap:round;stroke-linejoin:round}
+.v-brand .ring{position:absolute;width:120px;height:120px;border:1px dashed var(--steel);border-radius:22px;transform:rotate(12deg)}
+.v-soc{position:absolute;inset:0;display:grid;grid-template-columns:repeat(5,1fr);gap:6px;padding:24px;align-content:center}
+.v-soc i{aspect-ratio:1;border-radius:4px;border:1px solid var(--edge);background:var(--charcoal)}
+.v-soc i.on{background:var(--edge);border-color:var(--steel)}
+.v-keep{position:absolute;inset:0;display:grid;place-items:center}
+.v-keep .log{font:400 12px/1.9 ui-monospace,SFMono-Regular,Menlo,monospace;color:var(--ash)}
+.v-keep .log b{color:var(--white);font-weight:400}.v-keep .log em{color:#3DD68C;font-style:normal}
+@media (max-width:900px){.cell,.cell.w3{grid-column:span 3}}
+@media (max-width:640px){.mosaic{grid-template-columns:1fr}.cell,.cell.w3{grid-column:auto}}
+
+/* ---------- método ---------- */
+.steps{display:grid;grid-template-columns:repeat(3,1fr);border:1px solid var(--edge);border-radius:var(--r);overflow:hidden}
+.step{padding:32px 24px 36px;position:relative}
+.step+.step{border-left:1px solid var(--edge)}
+.step .n{font:500 12px ui-monospace,SFMono-Regular,Menlo,monospace;color:var(--ash)}
+.step .big{margin:48px 0 16px;font-size:clamp(32px,4vw,44px);font-weight:500;letter-spacing:-1px;line-height:1;color:var(--ash);transition:color .4s}
+.step.on .big,.step:hover .big{color:var(--white)}
+.step p{color:var(--fog)}
+.step::after{content:"";position:absolute;left:0;right:0;top:0;height:1px;background:var(--spectrum);background-size:200% 100%;opacity:0;transition:opacity .4s}
+.step.on::after,.step:hover::after{opacity:1}
+@media (max-width:860px){.steps{grid-template-columns:1fr}.step+.step{border-left:0;border-top:1px solid var(--edge)}.step .big{margin-top:24px}}
+
+/* ---------- diferencial ---------- */
+.why{display:grid;grid-template-columns:repeat(4,1fr);border:1px solid var(--edge);border-radius:var(--r);overflow:hidden}
+.why div{padding:24px;display:grid;gap:8px;align-content:start}
+.why div+div{border-left:1px solid var(--edge)}
+.why svg{width:20px;height:20px;color:var(--white);margin-bottom:16px}
+.why h3{font-size:18px;font-weight:600}
+.why p{color:var(--fog);font-size:15px}
+@media (max-width:900px){.why{grid-template-columns:1fr 1fr}.why div:nth-child(3){border-left:0}.why div:nth-child(n+3){border-top:1px solid var(--edge)}}
+@media (max-width:560px){.why{grid-template-columns:1fr}.why div+div{border-left:0;border-top:1px solid var(--edge)}}
+
+/* ---------- público ---------- */
+.who{display:flex;flex-wrap:wrap;gap:8px}
+.who span{padding:6px 14px;border:1px solid var(--edge);border-radius:20px;color:var(--fog);font-size:14px;font-weight:500;background:var(--canvas);transition:color .2s,border-color .2s}
+.who span:hover{color:var(--white);border-color:var(--steel)}
+
+/* ---------- faq ---------- */
+.faqgrid{display:grid;grid-template-columns:.8fr 1.2fr;gap:48px;align-items:start}
+.faqgrid .head{margin:0;position:sticky;top:130px}
+.faq{border:1px solid var(--edge);border-radius:var(--r);overflow:hidden}
+details+details{border-top:1px solid var(--edge)}
+summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:16px;padding:20px 24px;font-size:16px;font-weight:500;transition:background .2s}
+summary:hover{background:var(--charcoal)}
+summary::-webkit-details-marker{display:none}
+summary svg{flex:none;width:16px;height:16px;color:var(--fog);transition:transform .25s}
+details[open] summary svg{transform:rotate(45deg);color:var(--white)}
+details p{color:var(--fog);padding:0 24px 24px;max-width:600px}
+@media (max-width:860px){.faqgrid{grid-template-columns:1fr;gap:0}.faqgrid .head{position:static;margin-bottom:32px}}
+
+/* ---------- cta final ---------- */
+.cta{position:relative;overflow:hidden;border:1px solid var(--edge);border-radius:var(--r);background:radial-gradient(ellipse at 85% 50%,#151515,var(--canvas) 60%);padding:clamp(40px,7vw,80px) clamp(24px,5vw,64px);display:grid;gap:24px}
+.cta::before{content:"";position:absolute;left:0;right:0;top:-1px;height:1px;background:var(--spectrum);background-size:200% 100%;animation:sweep 6s linear infinite}
+.cta h2{font-size:clamp(36px,5vw,60px);line-height:1;letter-spacing:-1.5px;max-width:13ch;position:relative;z-index:1}
+.cta p{color:var(--fog);font-size:18px;max-width:460px;position:relative;z-index:1}
+.cta .actions{display:flex;flex-wrap:wrap;gap:8px;position:relative;z-index:1}
+.cta .poly{position:absolute;right:-60px;top:50%;transform:translateY(-50%);width:420px;max-width:none;opacity:.55}
+@media (max-width:760px){.cta .poly{right:-180px;opacity:.25}}
+
+/* ---------- footer ---------- */
+footer{margin-top:clamp(96px,13vw,176px);border-top:1px solid var(--edge);padding:48px 0 calc(40px + env(safe-area-inset-bottom,0px))}
+footer .wrap{display:grid;grid-template-columns:1fr auto;gap:32px;align-items:start}
+footer .logo svg{height:26px;width:auto}
+footer .tagl{color:var(--ash);font-size:14px;margin-top:12px}
+footer nav{display:flex;flex-wrap:wrap;gap:8px 24px}
+footer nav a{text-decoration:none;color:var(--fog);font-size:14px;font-weight:500}
+footer nav a:hover{color:var(--white)}
+footer small{grid-column:1/-1;color:var(--ash);font-size:12px;padding-top:24px;border-top:1px solid var(--edge)}
+@media (max-width:640px){footer .wrap{grid-template-columns:1fr}}
+
+/* ---------- whatsapp flutuante ---------- */
+.fab{position:fixed;right:16px;bottom:calc(16px + env(safe-area-inset-bottom,0px));z-index:40;width:52px;height:52px;border-radius:50%;background:var(--paper);color:var(--charcoal);display:grid;place-items:center;border:1px solid rgba(255,255,255,.1);box-shadow:rgb(255,255,255) 0 1px 0 0 inset,var(--sh-md);transform:scale(0);transition:transform .35s cubic-bezier(.34,1.56,.64,1)}
+.fab.on{transform:scale(1)}
+.fab svg{width:24px;height:24px}
+
+/* ---------- reveal ---------- */
+.rv{opacity:0;transform:translateY(20px);transition:opacity .8s cubic-bezier(.16,1,.3,1),transform .8s cubic-bezier(.16,1,.3,1)}
+.rv.in{opacity:1;transform:none}
 
 /* ---------- intro ---------- */
-.intro{position:absolute;inset:0;display:grid;place-items:center;pointer-events:none}
+.intro{position:fixed;inset:0;z-index:100;background:var(--canvas);display:grid;place-items:center}
 .intro .mono{width:clamp(92px,16vmin,150px);height:auto;overflow:visible;transform:translateY(-6vmin)}
-.seg{fill:none;stroke:var(--fg);stroke-width:13;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:var(--l);stroke-dashoffset:var(--l)}
+.seg{fill:none;stroke:var(--white);stroke-width:13;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:var(--l);stroke-dashoffset:var(--l)}
 .s1{--l:55}.s2{--l:91}.s3{--l:31}
-.dot{fill:var(--org);transform-box:fill-box;transform-origin:center;opacity:0}
-.words{position:absolute;left:0;right:0;top:calc(50% + 7vmin);height:1.4em;font-family:'Sora',sans-serif;font-weight:700;letter-spacing:.42em;text-indent:.42em;text-align:center;font-size:clamp(20px,4.6vmin,44px);color:var(--muted)}
+.intro .dot{fill:var(--org);transform-box:fill-box;transform-origin:center;opacity:0}
+.words{position:absolute;left:0;right:0;top:calc(50% + 7vmin);height:1.4em;font-weight:600;letter-spacing:.42em;text-indent:.42em;text-align:center;font-size:clamp(18px,4vmin,38px);color:var(--fog)}
 .words span{position:absolute;inset:0;opacity:0}
-.play .s1{animation:draw .75s .25s cubic-bezier(.65,0,.35,1) forwards}
-.play .s2{animation:draw .9s 1.15s cubic-bezier(.65,0,.35,1) forwards}
-.play .s3{animation:draw .55s 2.2s cubic-bezier(.65,0,.35,1) forwards}
-.play .dot{animation:drop .7s 2.75s cubic-bezier(.34,1.56,.64,1) forwards}
-.play .w1{animation:word 1s .2s both}
-.play .w2{animation:word 1.05s 1.15s both}
-.play .w3{animation:word 1.15s 2.15s both}
-.intro.out{animation:fadeout .55s forwards}
+.play .s1{animation:draw .6s .15s cubic-bezier(.65,0,.35,1) forwards}
+.play .s2{animation:draw .75s .85s cubic-bezier(.65,0,.35,1) forwards}
+.play .s3{animation:draw .45s 1.7s cubic-bezier(.65,0,.35,1) forwards}
+.play .dot{animation:drop .6s 2.15s cubic-bezier(.34,1.56,.64,1) forwards}
+.play .w1{animation:word .85s .1s both}
+.play .w2{animation:word .85s .9s both}
+.play .w3{animation:word .95s 1.7s both}
+.intro.out{animation:fadeout .6s cubic-bezier(.65,0,.35,1) forwards;pointer-events:none}
+.skip{position:absolute;right:18px;bottom:calc(env(safe-area-inset-bottom,0px) + 14px);background:none;border:0;color:var(--ash);font:500 12px 'Inter',sans-serif;cursor:pointer;padding:6px}
 @keyframes draw{to{stroke-dashoffset:0}}
 @keyframes drop{0%{opacity:1;transform:translateY(-260%) scale(.6)}60%{opacity:1}100%{opacity:1;transform:none}}
 @keyframes word{0%{opacity:0;transform:translateY(.6em);filter:blur(4px)}22%,74%{opacity:1;transform:none;filter:none}100%{opacity:0;transform:translateY(-.4em);filter:blur(3px)}}
-@keyframes fadeout{to{opacity:0;transform:scale(.94)}}
+@keyframes fadeout{to{opacity:0;visibility:hidden}}
 
-/* ---------- final ---------- */
-.final{display:flex;flex-direction:column;align-items:center;text-align:center;gap:clamp(18px,3.2vmin,30px);opacity:0}
-.final .wm{width:min(78vw,540px);height:auto;display:block}
-.tag{margin:0;font-family:'Sora',sans-serif;font-weight:700;font-size:clamp(11px,1.9vmin,17px);letter-spacing:.32em;text-indent:.32em;color:var(--muted);text-transform:uppercase}
-.cta{display:inline-flex;align-items:center;gap:10px;margin-top:clamp(6px,2vmin,18px);padding:14px 26px;border-radius:999px;background:var(--org);color:var(--ink);font-weight:600;font-size:clamp(14px,1.9vmin,17px);text-decoration:none;transition:transform .2s ease,box-shadow .2s ease}
-.cta:hover{transform:translateY(-2px);box-shadow:0 10px 30px -8px rgba(255,107,53,.55)}
-.cta:focus-visible,.ig:focus-visible{outline:3px solid var(--fg);outline-offset:4px}
-.cta svg{width:19px;height:19px}
-.ig{color:var(--muted);font-weight:500;font-size:14px;text-decoration:none;letter-spacing:.02em;border-bottom:1px solid transparent;transition:color .2s,border-color .2s}
-.ig:hover{color:var(--fg);border-color:var(--org)}
-.show .final{animation:rise .9s cubic-bezier(.16,1,.3,1) forwards}
-.show .final>*{opacity:0;animation:rise .8s cubic-bezier(.16,1,.3,1) forwards}
-.show .final>:nth-child(1){animation-delay:.05s}.show .final>:nth-child(2){animation-delay:.25s}.show .final>:nth-child(3){animation-delay:.45s}.show .final>:nth-child(4){animation-delay:.6s}
-.wm .wdot{transform-box:fill-box;transform-origin:center}
-.show .wm .wdot{animation:pop .6s .55s cubic-bezier(.34,1.56,.64,1) both}
-@keyframes rise{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
-@keyframes pop{from{transform:scale(0)}to{transform:scale(1)}}
-footer{position:fixed;left:0;right:0;padding:0 20px;line-height:1.7;bottom:calc(env(safe-area-inset-bottom,0px) + 18px);text-align:center;font-size:12px;color:var(--dim);letter-spacing:.06em;opacity:0}
-.show footer{animation:rise .8s 1s forwards}
-.skip{position:fixed;right:18px;bottom:calc(env(safe-area-inset-bottom,0px) + 14px);background:none;border:0;color:var(--dim);font:500 12px 'Inter',sans-serif;cursor:pointer;padding:6px}
-.show .skip{display:none}
-@media (prefers-reduced-motion:reduce){.intro{display:none}.final,.final>*,footer{opacity:1!important;animation:none!important}.skip{display:none}}
+/* entrada do hero */
+.hero .seq>*{opacity:0;transform:translateY(16px)}
+.ready .hero .seq>*{animation:rise .9s cubic-bezier(.16,1,.3,1) forwards}
+.ready .hero .seq>:nth-child(2){animation-delay:.08s}.ready .hero .seq>:nth-child(3){animation-delay:.16s}.ready .hero .seq>:nth-child(4){animation-delay:.24s}.ready .hero .seq>:nth-child(5){animation-delay:.32s}
+.hero .poly{opacity:0;transform:scale(.94)}
+.ready .hero .poly{animation:rise 1.4s .2s cubic-bezier(.16,1,.3,1) forwards}
+@keyframes rise{to{opacity:1;transform:none}}
+
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  .intro{display:none}
+  *,*::before,*::after{animation:none!important;transition:none!important}
+  .rv,.hero .seq>*,.hero .poly{opacity:1!important;transform:none!important}
+  .fab{transform:scale(1)}
+}
 </style>
 </head>
-<body>
-<main class="stage" id="stage">
-  <div class="intro play" id="intro" aria-hidden="true">
-    <svg class="mono" viewBox="0 0 100 100">
-      <path class="seg s1" d="M20 78V24"/>
-      <path class="seg s2" d="M20 24L50 56L80 24"/>
-      <path class="seg s3" d="M80 24V54"/>
-      <circle class="dot" cx="80" cy="76" r="9"/>
-    </svg>
-    <div class="words"><span class="w1">CRIAR</span><span class="w2">TESTAR</span><span class="w3">MANTER</span></div>
-  </div>
+<body class="locked">
 
-  <section class="final" aria-label="Mant. CO">
-    <h1 style="margin:0"><svg class="wm" viewBox="0 0 741.3 202" role="img" aria-label="Mant. CO"><path d="M44.4 174V28H89.6L122.9 110.1H126.7L159.8 28H205.8V174H173.3V49.4L178 49.8L139.45 144.4H108.1L69.35 49.8L74.4 49.4V174Z M293.95 174V141.7H288.65V106.5Q288.65 98.05 284.6 93.88Q280.55 89.7 271.8 89.7Q267.4 89.7 260.2 89.9Q253 90.1 245.35 90.45Q237.7 90.8 231.5 91.2V64.2Q236.2 63.8 242.38 63.42Q248.55 63.05 255.18 62.87Q261.8 62.7 267.5 62.7Q284.35 62.7 295.88 67.42Q307.4 72.15 313.38 81.85Q319.35 91.55 319.35 106.85V174ZM258.95 176.8Q247.25 176.8 238.33 172.62Q229.4 168.45 224.4 160.57Q219.4 152.7 219.4 141.7Q219.4 129.55 225.62 121.88Q231.85 114.2 243 110.52Q254.15 106.85 268.85 106.85H292.15V124.55H268.65Q260.2 124.55 255.65 128.72Q251.1 132.9 251.1 139.75Q251.1 146.45 255.65 150.57Q260.2 154.7 268.65 154.7Q273.95 154.7 278.28 152.8Q282.6 150.9 285.43 146.28Q288.25 141.65 288.65 133.5L296.25 141.4Q295.25 152.8 290.75 160.65Q286.25 168.5 278.35 172.65Q270.45 176.8 258.95 176.8Z M337.5 174V64.5H362.9V111.5H361.1Q361.1 94.65 365.48 83.45Q369.85 72.25 378.58 66.62Q387.3 61 399.95 61H401.35Q420.5 61 430.65 73.53Q440.8 86.05 440.8 111.35V174H408.7V109.6Q408.7 100.8 403.57 95.25Q398.45 89.7 389.55 89.7Q380.55 89.7 375.08 95.32Q369.6 100.95 369.6 110.2V174Z M508.75 175.5Q492.25 175.5 482.05 171.35Q471.85 167.2 467.07 157.47Q462.3 147.75 462.3 131.15L462.45 34.8H492.25L492.1 132.5Q492.1 140.2 496.2 144.3Q500.3 148.4 508 148.4H524.1V175.5ZM445.7 87.9V64.5H524.1V87.9Z" fill="#F5F3EE"/><path class="wdot" d="M536.85 174V138.2H572.05V174Z" fill="#FF6B35"/><path d="M630.56 175.22Q623.76 175.22 618.97 172.84Q614.18 170.46 611.25 166.66Q608.33 162.85 606.97 158.39Q605.61 153.94 605.61 149.79V148.3Q605.61 143.81 607 139.32Q608.4 134.83 611.32 131.16Q614.24 127.49 618.94 125.24Q623.63 123 630.16 123Q636.82 123 641.58 125.31Q646.34 127.62 649.13 131.77Q651.92 135.92 652.53 141.56H645.73Q645.18 137.35 643.01 134.59Q640.83 131.84 637.53 130.48Q634.24 129.12 630.16 129.12Q625.74 129.12 622.4 130.65Q619.07 132.18 616.86 134.93Q614.65 137.69 613.53 141.29Q612.41 144.9 612.41 149.11Q612.41 153.12 613.53 156.73Q614.65 160.33 616.93 163.12Q619.21 165.91 622.61 167.51Q626.01 169.1 630.56 169.1Q636.96 169.1 641.31 165.91Q645.66 162.71 646.61 156.66H653.41Q652.73 161.76 649.98 165.98Q647.22 170.19 642.36 172.71Q637.5 175.22 630.56 175.22Z M683.94 175.22Q677.28 175.22 672.45 172.84Q667.62 170.46 664.5 166.59Q661.37 162.71 659.84 158.29Q658.31 153.87 658.31 149.79V148.3Q658.31 143.88 659.87 139.39Q661.44 134.9 664.63 131.19Q667.83 127.49 672.62 125.24Q677.42 123 683.94 123Q690.47 123 695.27 125.24Q700.06 127.49 703.26 131.19Q706.45 134.9 708.02 139.39Q709.58 143.88 709.58 148.3V149.79Q709.58 153.87 708.05 158.29Q706.52 162.71 703.39 166.59Q700.26 170.46 695.44 172.84Q690.61 175.22 683.94 175.22ZM683.94 169.1Q688.3 169.1 691.8 167.47Q695.3 165.84 697.75 163.02Q700.2 160.2 701.49 156.63Q702.78 153.06 702.78 149.11Q702.78 144.96 701.49 141.36Q700.2 137.76 697.75 135Q695.3 132.25 691.8 130.68Q688.3 129.12 683.94 129.12Q679.59 129.12 676.09 130.68Q672.59 132.25 670.14 135Q667.69 137.76 666.4 141.36Q665.11 144.96 665.11 149.11Q665.11 153.06 666.4 156.63Q667.69 160.2 670.14 163.02Q672.59 165.84 676.09 167.47Q679.59 169.1 683.94 169.1Z" fill="#A3A8B0"/></svg></h1>
-    <p class="tag">Presença digital que se mantém.</p>
-    <a class="cta" id="cta" href="#" target="_blank" rel="noopener">
-      <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38a9.9 9.9 0 0 0 4.74 1.21h.01c5.46 0 9.91-4.45 9.91-9.91C21.96 6.45 17.5 2 12.04 2zm0 18.15h-.01a8.2 8.2 0 0 1-4.19-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.2 8.2 0 0 1-1.26-4.38c0-4.54 3.7-8.23 8.25-8.23a8.23 8.23 0 0 1 8.23 8.24c0 4.54-3.7 8.23-8.23 8.23zm4.52-6.16c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.12-.17.25-.64.81-.78.97-.14.17-.29.19-.54.06-.25-.12-1.05-.39-1.99-1.23-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.02-.38.11-.51.11-.11.25-.29.37-.43.12-.14.17-.25.25-.41.08-.17.04-.31-.02-.43-.06-.12-.56-1.34-.76-1.84-.2-.48-.41-.42-.56-.43h-.48c-.17 0-.43.06-.66.31-.23.25-.86.85-.86 2.07 0 1.22.89 2.4 1.01 2.56.12.17 1.75 2.67 4.23 3.74.59.26 1.05.41 1.41.52.59.19 1.13.16 1.56.1.48-.07 1.47-.6 1.67-1.18.21-.58.21-1.07.14-1.18-.06-.1-.22-.16-.47-.28z"/></svg>
-      <span id="ctaText">Conversar no WhatsApp</span>
-    </a>
-    <a class="ig" href="https://instagram.com/mant.corp" target="_blank" rel="noopener">@mant.corp</a>
-  </section>
-  <footer>Sites · Landing pages · Vídeos · Marca · Redes &nbsp;—&nbsp; Vitória/ES</footer>
+<div class="intro play" id="intro" aria-hidden="true">
+  <svg class="mono" viewBox="0 0 100 100">
+    <path class="seg s1" d="M20 78V24"/>
+    <path class="seg s2" d="M20 24L50 56L80 24"/>
+    <path class="seg s3" d="M80 24V54"/>
+    <circle class="dot" cx="80" cy="76" r="9"/>
+  </svg>
+  <div class="words"><span class="w1">CRIAR</span><span class="w2">TESTAR</span><span class="w3">MANTER</span></div>
   <button class="skip" id="skip" type="button">Pular</button>
+</div>
+
+<header class="top">
+  <div class="announce">Criar, testar e manter. <span class="x">Atendimento online para todo o Brasil.</span><a class="js-wa" href="#contato">Fale com a gente →</a></div>
+  <nav class="nav" aria-label="Principal">
+    <a class="logo" href="#topo" aria-label="Mant. CO, início"><svg viewBox="0 0 741.3 202" aria-hidden="true"><path d="M44.4 174V28H89.6L122.9 110.1H126.7L159.8 28H205.8V174H173.3V49.4L178 49.8L139.45 144.4H108.1L69.35 49.8L74.4 49.4V174Z M293.95 174V141.7H288.65V106.5Q288.65 98.05 284.6 93.88Q280.55 89.7 271.8 89.7Q267.4 89.7 260.2 89.9Q253 90.1 245.35 90.45Q237.7 90.8 231.5 91.2V64.2Q236.2 63.8 242.38 63.42Q248.55 63.05 255.18 62.87Q261.8 62.7 267.5 62.7Q284.35 62.7 295.88 67.42Q307.4 72.15 313.38 81.85Q319.35 91.55 319.35 106.85V174ZM258.95 176.8Q247.25 176.8 238.33 172.62Q229.4 168.45 224.4 160.57Q219.4 152.7 219.4 141.7Q219.4 129.55 225.62 121.88Q231.85 114.2 243 110.52Q254.15 106.85 268.85 106.85H292.15V124.55H268.65Q260.2 124.55 255.65 128.72Q251.1 132.9 251.1 139.75Q251.1 146.45 255.65 150.57Q260.2 154.7 268.65 154.7Q273.95 154.7 278.28 152.8Q282.6 150.9 285.43 146.28Q288.25 141.65 288.65 133.5L296.25 141.4Q295.25 152.8 290.75 160.65Q286.25 168.5 278.35 172.65Q270.45 176.8 258.95 176.8Z M337.5 174V64.5H362.9V111.5H361.1Q361.1 94.65 365.48 83.45Q369.85 72.25 378.58 66.62Q387.3 61 399.95 61H401.35Q420.5 61 430.65 73.53Q440.8 86.05 440.8 111.35V174H408.7V109.6Q408.7 100.8 403.57 95.25Q398.45 89.7 389.55 89.7Q380.55 89.7 375.08 95.32Q369.6 100.95 369.6 110.2V174Z M508.75 175.5Q492.25 175.5 482.05 171.35Q471.85 167.2 467.07 157.47Q462.3 147.75 462.3 131.15L462.45 34.8H492.25L492.1 132.5Q492.1 140.2 496.2 144.3Q500.3 148.4 508 148.4H524.1V175.5ZM445.7 87.9V64.5H524.1V87.9Z" fill="#FAFAFA"/><path class="wdot" d="M536.85 174V138.2H572.05V174Z" fill="#FF6B35"/><path d="M630.56 175.22Q623.76 175.22 618.97 172.84Q614.18 170.46 611.25 166.66Q608.33 162.85 606.97 158.39Q605.61 153.94 605.61 149.79V148.3Q605.61 143.81 607 139.32Q608.4 134.83 611.32 131.16Q614.24 127.49 618.94 125.24Q623.63 123 630.16 123Q636.82 123 641.58 125.31Q646.34 127.62 649.13 131.77Q651.92 135.92 652.53 141.56H645.73Q645.18 137.35 643.01 134.59Q640.83 131.84 637.53 130.48Q634.24 129.12 630.16 129.12Q625.74 129.12 622.4 130.65Q619.07 132.18 616.86 134.93Q614.65 137.69 613.53 141.29Q612.41 144.9 612.41 149.11Q612.41 153.12 613.53 156.73Q614.65 160.33 616.93 163.12Q619.21 165.91 622.61 167.51Q626.01 169.1 630.56 169.1Q636.96 169.1 641.31 165.91Q645.66 162.71 646.61 156.66H653.41Q652.73 161.76 649.98 165.98Q647.22 170.19 642.36 172.71Q637.5 175.22 630.56 175.22Z M683.94 175.22Q677.28 175.22 672.45 172.84Q667.62 170.46 664.5 166.59Q661.37 162.71 659.84 158.29Q658.31 153.87 658.31 149.79V148.3Q658.31 143.88 659.87 139.39Q661.44 134.9 664.63 131.19Q667.83 127.49 672.62 125.24Q677.42 123 683.94 123Q690.47 123 695.27 125.24Q700.06 127.49 703.26 131.19Q706.45 134.9 708.02 139.39Q709.58 143.88 709.58 148.3V149.79Q709.58 153.87 708.05 158.29Q706.52 162.71 703.39 166.59Q700.26 170.46 695.44 172.84Q690.61 175.22 683.94 175.22ZM683.94 169.1Q688.3 169.1 691.8 167.47Q695.3 165.84 697.75 163.02Q700.2 160.2 701.49 156.63Q702.78 153.06 702.78 149.11Q702.78 144.96 701.49 141.36Q700.2 137.76 697.75 135Q695.3 132.25 691.8 130.68Q688.3 129.12 683.94 129.12Q679.59 129.12 676.09 130.68Q672.59 132.25 670.14 135Q667.69 137.76 666.4 141.36Q665.11 144.96 665.11 149.11Q665.11 153.06 666.4 156.63Q667.69 160.2 670.14 163.02Q672.59 165.84 676.09 167.47Q679.59 169.1 683.94 169.1Z" fill="#A1A1A1"/></svg></a>
+    <ul>
+      <li><a href="#servicos">Serviços</a></li>
+      <li><a href="#metodo">Como funciona</a></li>
+      <li><a href="#diferencial">Por que a Mant</a></li>
+      <li><a href="#duvidas">Dúvidas</a></li>
+    </ul>
+    <div class="ctas">
+      <a class="btn btn-ghost" href="https://instagram.com/mant.corp" target="_blank" rel="noopener">Instagram</a>
+      <a class="btn btn-pri js-wa" href="#contato">Orçamento</a>
+    </div>
+  </nav>
+</header>
+
+<main id="topo">
+  <!-- HERO -->
+  <section class="hero">
+    <div class="wrap">
+      <div class="seq">
+        <span class="label">Estúdio digital · Vitória/ES</span>
+        <h1>Presença digital<br><span class="dim">que se mantém</span><span class="o">.</span></h1>
+        <p class="lead">Sites, landing pages, vídeos, marca e redes sociais para pequenos negócios e autônomos. A gente cria, testa e continua cuidando depois que tudo vai pro ar.</p>
+        <div class="actions">
+          <a class="btn btn-pri btn-lg js-wa" href="#contato"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.450 1.32 4.95L2.05 22l5.25-1.38a9.9 9.9 0 0 0 4.74 1.21h.01c5.46 0 9.91-4.45 9.91-9.91C21.96 6.45 17.5 2 12.040 2zm0 18.15h-.01a8.2 8.2 0 0 1-4.19-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.2 8.2 0 0 1-1.26-4.38c0-4.54 3.7-8.23 8.25-8.23a8.23 8.23 0 0 1 8.23 8.24c0 4.54-3.7 8.23-8.23 8.23zm4.52-6.16c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.12-.17.25-.64.81-.78.97-.14.17-.29.19-.54.06-.25-.12-1.05-.39-1.99-1.23-.74-.66-1.23-1.470-1.38-1.72-.14-.25-.02-.38.11-.51.11-.11.25-.29.37-.43.12-.14.17-.25.25-.41.08-.17.04-.31-.02-.43-.06-.12-.56-1.34-.76-1.84-.2-.48-.41-.42-.56-.43h-.48c-.17 0-.43.06-.66.31-.23.25-.86.85-.86 2.07 0 1.22.89 2.4 1.01 2.56.12.17 1.75 2.67 4.23 3.74.59.26 1.05.41 1.41.52.59.19 1.13.16 1.56.1.48-.07 1.47-.6 1.67-1.18.21-.58.21-1.07.14-1.18-.06-.1-.22-.16-.47-.28z"/></svg>Conversar no WhatsApp</a>
+          <a class="btn btn-sec btn-lg" href="#servicos">Ver serviços</a>
+        </div>
+        <div class="meta">
+          <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Atendimento direto</span>
+          <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Feito para o celular</span>
+          <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Suporte depois da entrega</span>
+        </div>
+      </div>
+      <div class="poly" aria-hidden="true"><span class="glow"></span><svg viewBox="0 0 400 400"><defs><linearGradient id="spec" x1="0" y1="0" x2="1" y2="1"><stop offset=".15" stop-color="#ffb931"/><stop offset=".35" stop-color="#fff"/><stop offset=".5" stop-color="#fff"/><stop offset=".75" stop-color="#2e73fc"/></linearGradient></defs><g class="g1"><rect class="sq blur" x="83.0" y="83.0" width="234" height="234" rx="20" transform="rotate(12 200 200)"/><rect class="sq " x="83.0" y="83.0" width="234" height="234" rx="20" transform="rotate(12 200 200)"/><rect class="sq " x="102.5" y="102.5" width="195" height="195" rx="18" transform="rotate(32 200 200)"/></g><g class="g2"><rect class="sq blur" x="71.5" y="71.5" width="257" height="257" rx="20" transform="rotate(-18 200 200)"/><rect class="sq " x="71.5" y="71.5" width="257" height="257" rx="20" transform="rotate(-18 200 200)"/><rect class="sq " x="122.0" y="122.0" width="156" height="156" rx="14" transform="rotate(-4 200 200)"/></g><g class="g3"><rect class="sq" style="stroke:url(#spec);stroke-width:1.6" x="91.0" y="91.0" width="218" height="218" rx="18" transform="rotate(45 200 200)"/><rect class="sq " x="141.5" y="141.5" width="117" height="117" rx="12" transform="rotate(22 200 200)"/></g></svg><svg class="mono" viewBox="0 0 100 100" style="position:absolute"><path d="M20 78V24L50 56L80 24V54"/><circle cx="80" cy="76" r="8" fill="#FF6B35"/></svg></div>
+    </div>
+
+    <!-- DEMO -->
+    <div class="wrap demo rv">
+      <div class="frame">
+        <div class="bar"><i></i><i></i><i></i><span class="url"><span class="live"></span><span id="url">seunegocio.com.br</span></span><i style="visibility:hidden"></i><i style="visibility:hidden"></i><i style="visibility:hidden"></i></div>
+        <div class="stagev">
+          <span class="tag" id="vtag">Exemplo ilustrativo</span>
+          <div class="view on" data-v="site">
+            <div class="k t"></div><div class="k t2"></div><div class="k l"></div><div class="k l2"></div><div class="k b"></div>
+            <div class="row"><div></div><div></div><div></div></div>
+          </div>
+          <div class="view" data-v="lp">
+            <div class="lp"><div><div class="k t" style="width:90%"></div><div class="k t2" style="width:70%"></div><div class="k l" style="width:85%"></div><div class="k l2" style="width:60%"></div><div class="k b" style="width:180px;height:40px"></div></div><div class="img"></div></div>
+          </div>
+          <div class="view" data-v="vid">
+            <div class="vid"><div class="player"><span class="play"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5.5v13a1 1 0 0 0 1.5.86l10.5-6.5a1 1 0 0 0 0-1.72L9.5 4.64A1 1 0 0 0 8 5.5z"/></svg></span><span class="prog"></span></div></div>
+          </div>
+          <div class="view" data-v="brand">
+            <div class="brandv"><div><svg viewBox="0 0 100 100" aria-hidden="true" style="width:56px;height:56px;overflow:visible"><path d="M20 78V24L50 56L80 24V54" fill="none" stroke="#FAFAFA" stroke-width="11" stroke-linecap="round" stroke-linejoin="round"/><circle cx="80" cy="76" r="8" fill="#FF6B35"/></svg></div><div><span class="aa">Aa</span></div><div><span class="sw"><i style="background:#fafafa"></i><i style="background:#464646"></i><i style="background:#FF6B35"></i></span></div></div>
+          </div>
+          <div class="view" data-v="soc">
+            <div class="igh"><span class="av"></span><div style="flex:1"><div class="k" style="height:12px;width:40%;background:var(--steel)"></div><div class="k" style="height:8px;width:60%;margin-top:10px"></div></div></div>
+            <div class="ig"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
+          </div>
+        </div>
+        <div class="tabs" role="tablist" aria-label="Exemplos de serviço">
+          <button role="tab" aria-selected="true" data-t="site" data-u="seunegocio.com.br"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="192.0" y="192.0" width="16" height="16" rx="2"/><path d="M8 21h8M12 17v4"/></svg>Site</button>
+          <button role="tab" aria-selected="false" data-t="lp" data-u="seunegocio.com.br/promo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2v4M12 18v4M4.9 4.9l2.8 2.8M16.3 16.3l2.8 2.8M2 12h4M18 12h4"/></svg>Landing page</button>
+          <button role="tab" aria-selected="false" data-t="vid" data-u="pitch · 0:45"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="194.5" y="194.5" width="11" height="11" rx="2"/><path d="m16 10 6-3v10l-6-3z"/></svg>Vídeo pitch</button>
+          <button role="tab" aria-selected="false" data-t="brand" data-u="marca · guia visual"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22a10 10 0 1 1 10-10c0 2-1.5 3-3 3h-2a2 2 0 0 0-1.5 3.3A2 2 0 0 1 12 22z"/><circle cx="7.5" cy="11" r="1"/><circle cx="12" cy="7" r="1"/><circle cx="16.5" cy="10" r="1"/></svg>Identidade visual</button>
+          <button role="tab" aria-selected="false" data-t="soc" data-u="@seunegocio"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>Redes sociais</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVIÇOS -->
+  <section id="servicos">
+    <div class="wrap">
+      <div class="head rv">
+        <span class="label">Serviços</span>
+        <h2>Tudo o que o seu negócio precisa para ser encontrado.</h2>
+        <p>Escolha um serviço ou monte o pacote completo. Tudo pensado para quem toca o próprio negócio e não tem tempo a perder.</p>
+      </div>
+      <div class="mosaic">
+        <article class="cell w3 rv">
+          <div class="vis"><div class="v-site"><div class="k t"></div><div class="k l"></div><div class="k b"></div></div></div>
+          <div class="txt"><h3>Sites</h3><p>Site institucional rápido, bonito no celular e fácil de achar no Google. Seu cartão de visitas aberto 24 horas.</p>
+          <div class="chips"><span>Responsivo</span><span>SEO básico</span><span>Domínio e hospedagem</span></div></div>
+        </article>
+        <article class="cell w3 rv">
+          <div class="vis"><div class="v-lp"><span class="bub"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.450 1.32 4.95L2.05 22l5.25-1.38a9.9 9.9 0 0 0 4.74 1.21h.01c5.46 0 9.91-4.45 9.91-9.91C21.96 6.45 17.5 2 12.040 2zm0 18.15h-.01a8.2 8.2 0 0 1-4.19-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.2 8.2 0 0 1-1.26-4.38c0-4.54 3.7-8.23 8.25-8.23a8.23 8.23 0 0 1 8.23 8.24c0 4.54-3.7 8.23-8.23 8.23zm4.52-6.16c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.12-.17.25-.64.81-.78.97-.14.17-.29.19-.54.06-.25-.12-1.05-.39-1.99-1.23-.74-.66-1.23-1.470-1.38-1.72-.14-.25-.02-.38.11-.51.11-.11.25-.29.37-.43.12-.14.17-.25.25-.41.08-.17.04-.31-.02-.43-.06-.12-.56-1.34-.76-1.84-.2-.48-.41-.42-.56-.43h-.48c-.17 0-.43.06-.66.31-.23.25-.86.85-.86 2.07 0 1.22.89 2.4 1.01 2.56.12.17 1.75 2.67 4.23 3.74.59.26 1.05.41 1.41.52.59.19 1.13.16 1.56.1.48-.07 1.47-.6 1.67-1.18.21-.58.21-1.07.14-1.18-.06-.1-.22-.16-.47-.28z"/></svg>Novo contato pelo WhatsApp</span><span class="bub2">via landing page</span></div></div>
+          <div class="txt"><h3>Landing pages</h3><p>Uma página com um único objetivo: vender aquele produto, lotar aquele evento, encher a agenda de orçamentos.</p>
+          <div class="chips"><span>Foco em conversão</span><span>Pronta para anúncios</span></div></div>
+        </article>
+        <article class="cell rv">
+          <div class="vis"><div class="v-vid"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div></div>
+          <div class="txt"><h3>Vídeos pitch</h3><p>Vídeos curtos que explicam o que você faz em menos de um minuto, para site, Reels e WhatsApp.</p></div>
+        </article>
+        <article class="cell rv">
+          <div class="vis"><div class="v-brand"><span class="ring"></span><svg viewBox="0 0 100 100" aria-hidden="true" style="width:56px;height:56px;overflow:visible"><path d="M20 78V24L50 56L80 24V54" fill="none" stroke="#FAFAFA" stroke-width="11" stroke-linecap="round" stroke-linejoin="round"/><circle cx="80" cy="76" r="8" fill="#FF6B35"/></svg></div></div>
+          <div class="txt"><h3>Identidade visual</h3><p>Logo, cores e tipografia que deixam sua marca reconhecível e profissional em qualquer lugar.</p></div>
+        </article>
+        <article class="cell rv">
+          <div class="vis"><div class="v-soc"><i></i><i class="on"></i><i></i><i></i><i class="on"></i><i class="on"></i><i></i><i></i><i class="on"></i><i></i></div></div>
+          <div class="txt"><h3>Gestão de redes</h3><p>Planejamento, criação e publicação de conteúdo para o seu perfil não ficar parado.</p></div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- MÉTODO -->
+  <section id="metodo">
+    <div class="wrap">
+      <div class="head rv">
+        <span class="label">Como funciona</span>
+        <h2>Três palavras. Um processo que não te deixa na mão.</h2>
+      </div>
+      <div class="steps rv">
+        <div class="step"><span class="n">01</span><div class="big">Criar</div><p>Entendemos seu negócio, seu cliente e seu objetivo. Daí sai a marca, o site, o vídeo ou o conteúdo, feito sob medida e não de modelo pronto.</p></div>
+        <div class="step"><span class="n">02</span><div class="big">Testar</div><p>Antes de publicar, tudo passa por teste no celular, no computador e na mão de quem vai usar. Você aprova cada etapa.</p></div>
+        <div class="step"><span class="n">03</span><div class="big">Manter<span class="o">.</span></div><p>Depois que vai pro ar, a gente continua por perto: atualizações, ajustes e melhorias para sua presença não envelhecer.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DIFERENCIAL -->
+  <section id="diferencial">
+    <div class="wrap">
+      <div class="head rv">
+        <span class="label">Por que a Mant</span>
+        <h2>A gente não entrega e some.</h2>
+        <p>O problema da maioria dos sites não é ser feio. É ficar abandonado. Nosso trabalho começa na criação e continua depois.</p>
+      </div>
+      <div class="why rv">
+        <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/><path d="M8 9h8M8 13h5"/></svg><h3>Atendimento direto</h3><p>Você fala com quem faz, pelo WhatsApp, sem intermediário e sem protocolo.</p></div>
+        <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="195.5" y="195.5" width="9" height="9" rx="3"/><path d="M11 18h2"/></svg><h3>Feito para o celular</h3><p>A maioria dos seus clientes vai te encontrar pelo telefone. É por ele que a gente começa.</p></div>
+        <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 6h16M4 12h10M4 18h7"/></svg><h3>Linguagem simples</h3><p>Nada de tecniquês. Você entende o que está sendo feito e por quê.</p></div>
+        <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m12 2 10 5-10 5L2 7z"/><path d="m2 17 10 5 10-5M2 12l10 5 10-5"/></svg><h3>Tudo em um lugar</h3><p>Marca, site, vídeo e redes falando a mesma língua, sem cinco fornecedores diferentes.</p></div>
+      </div>
+      <div class="rv" style="margin-top:48px">
+        <p style="color:var(--ash);font-size:14px;margin-bottom:16px">Para quem é</p>
+        <div class="who"><span>Prestadores de serviço</span><span>Profissionais liberais</span><span>Clínicas e consultórios</span><span>Lojas e comércio local</span><span>Restaurantes e cafés</span><span>Salões e estética</span><span>Autônomos</span><span>Quem está começando</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section id="duvidas">
+    <div class="wrap faqgrid">
+      <div class="head rv">
+        <span class="label">Dúvidas</span>
+        <h2>Perguntas frequentes.</h2>
+        <p>Não achou o que procurava?</p>
+        <a class="link js-wa" href="#contato">Pergunte no WhatsApp <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      </div>
+      <div class="faq rv">
+        <details><summary>Quanto custa?<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></summary><p>Depende do que o seu negócio precisa. Chama no WhatsApp, conta rapidinho o que você tem em mente e a gente monta um orçamento sem compromisso.</p></details>
+        <details><summary>Quanto tempo leva para ficar pronto?<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></summary><p>Varia conforme o projeto. Uma landing page é bem mais rápida que um site completo com identidade visual. O prazo é combinado antes de começar.</p></details>
+        <details><summary>Ainda não tenho domínio nem hospedagem. Tem problema?<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></summary><p>Nenhum. A gente orienta e cuida da parte técnica para colocar seu site no ar com o endereço do seu negócio.</p></details>
+        <details><summary>Vocês atendem só em Vitória?<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></summary><p>Estamos em Vitória/ES, mas o atendimento é online. Dá para trabalhar com clientes de qualquer lugar do Brasil.</p></details>
+        <details><summary>O que acontece depois que o site vai pro ar?<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></summary><p>É aí que entra o “manter”. Seguimos disponíveis para atualizar conteúdo, fazer ajustes e acompanhar o que precisa melhorar.</p></details>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section id="contato">
+    <div class="wrap">
+      <div class="cta rv">
+        <div class="poly" aria-hidden="true"><span class="glow"></span><svg viewBox="0 0 400 400"><defs><linearGradient id="spec" x1="0" y1="0" x2="1" y2="1"><stop offset=".15" stop-color="#ffb931"/><stop offset=".35" stop-color="#fff"/><stop offset=".5" stop-color="#fff"/><stop offset=".75" stop-color="#2e73fc"/></linearGradient></defs><g class="g1"><rect class="sq blur" x="83.0" y="83.0" width="234" height="234" rx="20" transform="rotate(12 200 200)"/><rect class="sq " x="83.0" y="83.0" width="234" height="234" rx="20" transform="rotate(12 200 200)"/><rect class="sq " x="102.5" y="102.5" width="195" height="195" rx="18" transform="rotate(32 200 200)"/></g><g class="g2"><rect class="sq blur" x="71.5" y="71.5" width="257" height="257" rx="20" transform="rotate(-18 200 200)"/><rect class="sq " x="71.5" y="71.5" width="257" height="257" rx="20" transform="rotate(-18 200 200)"/><rect class="sq " x="122.0" y="122.0" width="156" height="156" rx="14" transform="rotate(-4 200 200)"/></g><g class="g3"><rect class="sq" style="stroke:url(#spec);stroke-width:1.6" x="91.0" y="91.0" width="218" height="218" rx="18" transform="rotate(45 200 200)"/><rect class="sq " x="141.5" y="141.5" width="117" height="117" rx="12" transform="rotate(22 200 200)"/></g></svg><svg class="mono" viewBox="0 0 100 100" style="position:absolute"><path d="M20 78V24L50 56L80 24V54"/><circle cx="80" cy="76" r="8" fill="#FF6B35"/></svg></div>
+        <span class="label" style="position:relative;z-index:1">Contato</span>
+        <h2>Bora colocar seu negócio no ar<span class="o">?</span></h2>
+        <p>Manda uma mensagem contando o que você faz. A gente responde com uma ideia de caminho e um orçamento.</p>
+        <div class="actions">
+          <a class="btn btn-pri btn-lg js-wa" href="#contato"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.450 1.32 4.95L2.05 22l5.25-1.38a9.9 9.9 0 0 0 4.74 1.21h.01c5.46 0 9.91-4.45 9.91-9.91C21.96 6.45 17.5 2 12.040 2zm0 18.15h-.01a8.2 8.2 0 0 1-4.19-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.2 8.2 0 0 1-1.26-4.38c0-4.54 3.7-8.23 8.25-8.23a8.23 8.23 0 0 1 8.23 8.24c0 4.54-3.7 8.23-8.23 8.23zm4.52-6.16c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.12-.17.25-.64.81-.78.97-.14.17-.29.19-.54.06-.25-.12-1.05-.39-1.99-1.23-.74-.66-1.23-1.470-1.38-1.72-.14-.25-.02-.38.11-.51.11-.11.25-.29.37-.43.12-.14.17-.25.25-.41.08-.17.04-.31-.02-.43-.06-.12-.56-1.34-.76-1.84-.2-.48-.41-.42-.56-.43h-.48c-.17 0-.43.06-.66.31-.23.25-.86.85-.86 2.07 0 1.22.89 2.4 1.01 2.56.12.17 1.75 2.67 4.23 3.74.59.26 1.05.41 1.41.52.59.19 1.13.16 1.56.1.48-.07 1.47-.6 1.67-1.18.21-.58.21-1.07.14-1.18-.06-.1-.22-.16-.47-.28z"/></svg>Conversar no WhatsApp</a>
+          <a class="btn btn-sec btn-lg" href="https://instagram.com/mant.corp" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="193.0" y="193.0" width="14" height="14" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r=".5" fill="currentColor"/></svg>@mant.corp</a>
+        </div>
+      </div>
+    </div>
+  </section>
 </main>
+
+<footer>
+  <div class="wrap">
+    <div>
+      <a class="logo" href="#topo" aria-label="Mant. CO, voltar ao topo"><svg viewBox="0 0 741.3 202" aria-hidden="true"><path d="M44.4 174V28H89.6L122.9 110.1H126.7L159.8 28H205.8V174H173.3V49.4L178 49.8L139.45 144.4H108.1L69.35 49.8L74.4 49.4V174Z M293.95 174V141.7H288.65V106.5Q288.65 98.05 284.6 93.88Q280.55 89.7 271.8 89.7Q267.4 89.7 260.2 89.9Q253 90.1 245.35 90.45Q237.7 90.8 231.5 91.2V64.2Q236.2 63.8 242.38 63.42Q248.55 63.05 255.18 62.87Q261.8 62.7 267.5 62.7Q284.35 62.7 295.88 67.42Q307.4 72.15 313.38 81.85Q319.35 91.55 319.35 106.85V174ZM258.95 176.8Q247.25 176.8 238.33 172.62Q229.4 168.45 224.4 160.57Q219.4 152.7 219.4 141.7Q219.4 129.55 225.62 121.88Q231.85 114.2 243 110.52Q254.15 106.85 268.85 106.85H292.15V124.55H268.65Q260.2 124.55 255.65 128.72Q251.1 132.9 251.1 139.75Q251.1 146.45 255.65 150.57Q260.2 154.7 268.65 154.7Q273.95 154.7 278.28 152.8Q282.6 150.9 285.43 146.28Q288.25 141.65 288.65 133.5L296.25 141.4Q295.25 152.8 290.75 160.65Q286.25 168.5 278.35 172.65Q270.45 176.8 258.95 176.8Z M337.5 174V64.5H362.9V111.5H361.1Q361.1 94.65 365.48 83.45Q369.85 72.25 378.58 66.62Q387.3 61 399.95 61H401.35Q420.5 61 430.65 73.53Q440.8 86.05 440.8 111.35V174H408.7V109.6Q408.7 100.8 403.57 95.25Q398.45 89.7 389.55 89.7Q380.55 89.7 375.08 95.32Q369.6 100.95 369.6 110.2V174Z M508.75 175.5Q492.25 175.5 482.05 171.35Q471.85 167.2 467.07 157.47Q462.3 147.75 462.3 131.15L462.45 34.8H492.25L492.1 132.5Q492.1 140.2 496.2 144.3Q500.3 148.4 508 148.4H524.1V175.5ZM445.7 87.9V64.5H524.1V87.9Z" fill="#FAFAFA"/><path class="wdot" d="M536.85 174V138.2H572.05V174Z" fill="#FF6B35"/><path d="M630.56 175.22Q623.76 175.22 618.97 172.84Q614.18 170.46 611.25 166.66Q608.33 162.85 606.97 158.39Q605.61 153.94 605.61 149.79V148.3Q605.61 143.81 607 139.32Q608.4 134.83 611.32 131.16Q614.24 127.49 618.94 125.24Q623.63 123 630.16 123Q636.82 123 641.58 125.31Q646.34 127.62 649.13 131.77Q651.92 135.92 652.53 141.56H645.73Q645.18 137.35 643.01 134.59Q640.83 131.84 637.53 130.48Q634.24 129.12 630.16 129.12Q625.74 129.12 622.4 130.65Q619.07 132.18 616.86 134.93Q614.65 137.69 613.53 141.29Q612.41 144.9 612.41 149.11Q612.41 153.12 613.53 156.73Q614.65 160.33 616.93 163.12Q619.21 165.91 622.61 167.51Q626.01 169.1 630.56 169.1Q636.96 169.1 641.31 165.91Q645.66 162.71 646.61 156.66H653.41Q652.73 161.76 649.98 165.98Q647.22 170.19 642.36 172.71Q637.5 175.22 630.56 175.22Z M683.94 175.22Q677.28 175.22 672.45 172.84Q667.62 170.46 664.5 166.59Q661.37 162.71 659.84 158.29Q658.31 153.87 658.31 149.79V148.3Q658.31 143.88 659.87 139.39Q661.44 134.9 664.63 131.19Q667.83 127.49 672.62 125.24Q677.42 123 683.94 123Q690.47 123 695.27 125.24Q700.06 127.49 703.26 131.19Q706.45 134.9 708.02 139.39Q709.58 143.88 709.58 148.3V149.79Q709.58 153.87 708.05 158.29Q706.52 162.71 703.39 166.59Q700.26 170.46 695.44 172.84Q690.61 175.22 683.94 175.22ZM683.94 169.1Q688.3 169.1 691.8 167.47Q695.3 165.84 697.75 163.02Q700.2 160.2 701.49 156.63Q702.78 153.06 702.78 149.11Q702.78 144.96 701.49 141.36Q700.2 137.76 697.75 135Q695.3 132.25 691.8 130.68Q688.3 129.12 683.94 129.12Q679.59 129.12 676.09 130.68Q672.59 132.25 670.14 135Q667.69 137.76 666.4 141.36Q665.11 144.96 665.11 149.11Q665.11 153.06 666.4 156.63Q667.69 160.2 670.14 163.02Q672.59 165.84 676.09 167.47Q679.59 169.1 683.94 169.1Z" fill="#A1A1A1"/></svg></a>
+      <p class="tagl">Presença digital que se mantém.</p>
+    </div>
+    <nav aria-label="Rodapé">
+      <a href="#servicos">Serviços</a>
+      <a href="#metodo">Como funciona</a>
+      <a href="#duvidas">Dúvidas</a>
+      <a href="https://instagram.com/mant.corp" target="_blank" rel="noopener">Instagram</a>
+      <a class="js-wa" href="#contato">WhatsApp</a>
+    </nav>
+    <small>© <span id="ano">2026</span> Mant. CO · Vitória/ES</small>
+  </div>
+</footer>
+
+<a class="fab js-wa" id="fab" href="#contato" aria-label="Conversar no WhatsApp"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.450 1.32 4.95L2.05 22l5.25-1.38a9.9 9.9 0 0 0 4.74 1.21h.01c5.46 0 9.91-4.45 9.91-9.91C21.96 6.45 17.5 2 12.040 2zm0 18.15h-.01a8.2 8.2 0 0 1-4.19-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.2 8.2 0 0 1-1.26-4.38c0-4.54 3.7-8.23 8.25-8.23a8.23 8.23 0 0 1 8.23 8.24c0 4.54-3.7 8.23-8.23 8.23zm4.52-6.16c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.12-.17.25-.64.81-.78.97-.14.17-.29.19-.54.06-.25-.12-1.05-.39-1.99-1.23-.74-.66-1.23-1.470-1.38-1.72-.14-.25-.02-.38.11-.51.11-.11.25-.29.37-.43.12-.14.17-.25.25-.41.08-.17.04-.31-.02-.43-.06-.12-.56-1.34-.76-1.84-.2-.48-.41-.42-.56-.43h-.48c-.17 0-.43.06-.66.31-.23.25-.86.85-.86 2.07 0 1.22.89 2.4 1.01 2.56.12.17 1.75 2.67 4.23 3.74.59.26 1.05.41 1.41.52.59.19 1.13.16 1.56.1.48-.07 1.47-.6 1.67-1.18.21-.58.21-1.07.14-1.18-.06-.1-.22-.16-.47-.28z"/></svg></a>
+
 <script>
 // ====== CONFIGURE AQUI ======
 // Coloque o WhatsApp com DDI + DDD, só números (ex.: '5527999999999').
-// Enquanto estiver vazio, o botão leva para o Instagram.
+// Enquanto estiver vazio, os botões levam para o Instagram.
 const WHATSAPP = '5527999951802';
 const MENSAGEM = 'Olá! Vim pelo site da Mant. CO e quero conversar.';
 // ============================
 (function(){
-  const cta=document.getElementById('cta'), stage=document.getElementById('stage'), intro=document.getElementById('intro');
-  if(WHATSAPP){ cta.href='https://wa.me/'+WHATSAPP+'?text='+encodeURIComponent(MENSAGEM); }
-  else { cta.href='https://instagram.com/mant.corp'; document.getElementById('ctaText').textContent='Falar no Instagram'; cta.querySelector('svg').style.display='none'; }
+  const link = WHATSAPP ? 'https://wa.me/'+WHATSAPP+'?text='+encodeURIComponent(MENSAGEM) : 'https://instagram.com/mant.corp';
+  document.querySelectorAll('.js-wa').forEach(a=>{a.href=link;a.target='_blank';a.rel='noopener';});
+  document.getElementById('ano').textContent=new Date().getFullYear();
+
+  // intro (só na primeira visita da sessão)
+  const body=document.body, intro=document.getElementById('intro');
   let done=false;
-  function finish(){ if(done) return; done=true; intro.classList.add('out'); stage.classList.add('show'); setTimeout(()=>intro.remove(),900); }
+  function finish(fast){
+    if(done) return; done=true;
+    if(fast) intro.style.animationDuration='.3s';
+    intro.classList.add('out'); body.classList.remove('locked'); body.classList.add('ready');
+    setTimeout(()=>intro.remove(),700);
+  }
   const reduce=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  if(reduce){ stage.classList.add('show'); intro.remove(); return; }
-  setTimeout(finish,3850);
-  document.getElementById('skip').addEventListener('click',()=>{intro.style.animation='fadeout .3s forwards';intro.classList.remove('play');finish();});
+  let seen=false; try{seen=sessionStorage.getItem('mant-intro')==='1';sessionStorage.setItem('mant-intro','1');}catch(e){}
+  if(reduce||seen||location.hash){ intro.remove(); body.classList.remove('locked'); body.classList.add('ready'); }
+  else{ setTimeout(()=>finish(),2900); document.getElementById('skip').addEventListener('click',()=>finish(true)); }
+
+  // abas da demonstração
+  const tabs=[...document.querySelectorAll('.tabs button')], views=document.querySelectorAll('.view'), url=document.getElementById('url');
+  let auto=null, idx=0;
+  function show(i){
+    idx=i; const t=tabs[i];
+    tabs.forEach(b=>b.setAttribute('aria-selected',b===t));
+    views.forEach(v=>v.classList.toggle('on',v.dataset.v===t.dataset.t));
+    url.textContent=t.dataset.u;
+  }
+  tabs.forEach((b,i)=>b.addEventListener('click',()=>{clearInterval(auto);show(i);}));
+  if(!reduce) auto=setInterval(()=>show((idx+1)%tabs.length),3800);
+
+  // botão flutuante
+  const fab=document.getElementById('fab'), hero=document.querySelector('.hero');
+  function onScroll(){ fab.classList.toggle('on',window.scrollY>hero.offsetHeight*.6); }
+  window.addEventListener('scroll',onScroll,{passive:true}); onScroll();
+
+  // reveal + etapa ativa
+  const els=document.querySelectorAll('.rv');
+  if('IntersectionObserver' in window){
+    const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}}),{threshold:.12,rootMargin:'0px 0px -40px 0px'});
+    els.forEach(el=>io.observe(el));
+    const steps=[...document.querySelectorAll('.step')];
+    const so=new IntersectionObserver(es=>es.forEach(e=>e.target.classList.toggle('on',e.isIntersecting)),{rootMargin:'-40% 0px -40% 0px'});
+    if(window.innerWidth<860) steps.forEach(s=>so.observe(s));
+  } else els.forEach(el=>el.classList.add('in'));
 })();
 </script>
 </body>
